@@ -5,15 +5,15 @@ import java.text.NumberFormat;
 public class MortgageReport {
 
     private final NumberFormat currency;
-    private final MortgageCalculator calculator;
+    private CanCalculate canCalculate;
 
-    public MortgageReport(MortgageCalculator calculator) {
-        this.calculator = calculator;
+    public MortgageReport(CanCalculate canCalculate) {
+        this.canCalculate = canCalculate;
         currency = NumberFormat.getCurrencyInstance();
     }
 
     public void printMortgageCalculator() {
-        double mortgage = calculator.calculateMortgage();
+        double mortgage = canCalculate.calculateMortgage();
         String mortgageFormatted = currency.format(mortgage);
         Main.logger.info("");
         Main.logger.info("MORTGAGE APP");

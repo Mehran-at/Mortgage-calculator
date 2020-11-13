@@ -5,10 +5,10 @@ import java.text.NumberFormat;
 public class MortgageBalanceReport {
 
     private final NumberFormat currency;
-    private final MortgageBalanceCalculator calculateBalance;
+    private CanBalance canBalance;
 
-    public MortgageBalanceReport(MortgageBalanceCalculator calculateBalance) {
-        this.calculateBalance = calculateBalance;
+    public MortgageBalanceReport(CanBalance canBalance) {
+        this.canBalance = canBalance;
         currency = NumberFormat.getCurrencyInstance();
     }
 
@@ -16,7 +16,7 @@ public class MortgageBalanceReport {
         Main.logger.info("");
         Main.logger.info("PAYMENT SCHEDULE");
         Main.logger.info("----------------");
-        for (double balance : calculateBalance.getRemainingBalances())
+        for (double balance : canBalance.getRemainingBalances())
             Main.logger.info(currency.format(balance));
     }
 }

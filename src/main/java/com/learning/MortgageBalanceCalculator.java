@@ -23,6 +23,7 @@ public class MortgageBalanceCalculator implements CanBalance{
                 (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
     }
 
+    @Override
     public double[] getRemainingBalances() {
         double[] payments = new double[getNumberOfPayments()];
         for (short month = 1; month <= payments.length; month++)
