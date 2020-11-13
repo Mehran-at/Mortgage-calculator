@@ -1,6 +1,6 @@
 package com.learning;
 
-public class MortgageCalculator {
+public class MortgageCalculator implements CanCalculate{
     private final int loanAmount;
     private final float annualInterestRate;
     private final byte years;
@@ -11,7 +11,8 @@ public class MortgageCalculator {
         this.years = years;
     }
 
-    public Double calculateMortgage() {
+    @Override
+    public double calculateMortgage() {
         float monthlyInterestRate = getMonthlyInterestRate();
         float numberOfPayments = getNumberOfPayments();
 

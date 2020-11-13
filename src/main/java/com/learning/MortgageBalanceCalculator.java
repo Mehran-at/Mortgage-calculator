@@ -1,6 +1,6 @@
 package com.learning;
 
-public class MortgageBalanceCalculator {
+public class MortgageBalanceCalculator implements CanBalance{
     private final int loanAmount;
     private final float annualInterestRate;
     private final byte years;
@@ -11,6 +11,7 @@ public class MortgageBalanceCalculator {
         this.years = years;
     }
 
+    @Override
     public double calculateBalance(short numberOfPaymentsMade) {
         float monthlyInterestRate = getMonthlyInterestRate();
         float numberOfPayments = getNumberOfPayments();
